@@ -7,7 +7,7 @@
 ## What kind of food is Falafel?
 Falafel is a web development framework that bundles libraries and tools, providing an elegant and satisfying web development experience. We believe that there is no need to feel pain when developing software, whether it's a "warp engine" or a web page.
 Falafel isn't a new independent or "alien" web Framework. It's just a web framework that provides a standard project with MVC concepts, and a collection of facilities for your web Python project.    
-More here: (Falafel)[https://getfalafel.github.io/docs/en/welcome-to-falafel/about-the-falafel/]
+More here: [Falafel](https://getfalafel.github.io/docs/en/welcome-to-falafel/about-the-falafel/)
 
 ## About Fava CLI
 
