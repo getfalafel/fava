@@ -27,7 +27,7 @@ fava -h
 ### Installation
 You can install the Fava with PIP package manager.  
 ```
-pip install fava
+pip install falafel-fava
 ```
 
 ### Usage
