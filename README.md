@@ -11,9 +11,8 @@ More here: [Falafel](https://getfalafel.github.io/docs/en/welcome-to-falafel/abo
 
 ## About Fava CLI
 
-Fava is the command-line interface (CLI) for Falafel, amd the CLI provides a number of helpful commands that can assist you while you build your application.  
-Fava is a standalone Python package, but it is designed as a main dependency of Falafel. 
-Its functionality depends on the Falafel base project and it isn't recommended to run just Fava without Falafel files.  
+Fava is the command-line interface (CLI) for Falafel, and the CLI provides several useful commands that can help you as you build your app.    
+Fava is a standalone Python package, but it was designed as a main dependency of Falafel. Its functionality depends on the base Falafel project and it isn't recommended to run just Fava without Falafel files.    
 
 Fava, our CLI provides tools to facilitate your application development. With Fava you can interact with your favorite database engine, generating migrations, models, and seeds. It is also possible to create routes, controllers and other functionality.    
 
