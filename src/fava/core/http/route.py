@@ -14,32 +14,32 @@ p = inflect.engine()
 mode = black.FileMode()
 
 
-def create_new_route(name):
+def create_new_route(name_of_route):
     """
     Create new Route file
     :param name:
     :return:
     """
 
-    name = name.lower()
-    if path.exists(controllers_dir + "/" + name.lower() + "_controller.py"):
+    name = name_of_route.lower()
+    if path.exists(controllers_dir + "/" + name + "_controller.py"):
 
         if check_route_exists(name):
             print("#######")
             print("Error!")
-            print("The " + routes_dir + "/" + name.loqer() + "_route.py exists!")
+            print("The " + routes_dir + "/" + name + "_routes.py exists!")
             print("#######")
 
         else:
-            with open(routes_dir + '/' + name.lower() + '_route.py', 'w') as route:
+            with open(routes_dir + '/' + name + '_routes.py', 'w') as route:
                 content = dedent("""\
-                    from """ + variables.get("CONTROLLERS_DIR").replace("/", ".") + """ import """ + name.lower() + """_controller
+                    from """ + variables.get("CONTROLLERS_DIR").replace("/", ".") + """ import """ + name + """_controller
                     from flask import Blueprint
                     """ + name + """ = Blueprint('""" + name + """', __name__, url_prefix='/""" + p.plural(name) + """')
 
                     @""" + name + """.route("/", methods=['GET'])
                     def index():
-                        return """ + name.lower() + """_controller.index()
+                        return """ + name + """_controller.index()
 
                     def init_app(app):
                         app.register_blueprint(""" + name + """)
@@ -52,22 +52,22 @@ def create_new_route(name):
                 update_route_list(name)
 
                 print("#######")
-                print("The " + routes_dir + "/" + name.lower() + "_route.py created!")
+                print("The " + routes_dir + "/" + name + "_routes.py created!")
                 print("#######")
     else:
         print("#######")
         print("Error!")
-        print("The " + name.lower() + "_controller doesn't exists!")
+        print("The " + name + "_controller doesn't exists!")
         print("For create a new route you need to create a controller before.")
         print("Create the controller file first!")
-        print("Run: fava -mkcontroller " + name.lower())
+        print("Run: fava -mkcontroller " + name)
         print("#######")
 
 
-def update_route_list(route):
+def update_route_list(route_name):
     """
     Update extensions file
-    :param route:
+    :param route_name:
     :return:
     """
 
@@ -80,7 +80,7 @@ def update_route_list(route):
 
         if is_new:
             app_config_data.get('default').get('EXTENSIONS').append(
-                'app.http.routes.' + route + ':init_app')
+                'app.http.routes.' + route_name + '_routes:init_app')
             toml.dump(app_config_data, app_config_file)
 
     except BaseException as err:
@@ -88,11 +88,11 @@ def update_route_list(route):
         raise SystemExit(err)
 
 
-def check_route_exists(name):
+def check_route_exists(route_name):
     """
     Model file exists?
     """
-    if path.exists(routes_dir + '/' + name + '.py'):
+    if path.exists(routes_dir + '/' + route_name + '_routes.py'):
         return True
     else:
         return False
