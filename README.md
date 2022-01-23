@@ -4,11 +4,20 @@
   </a>
 </p>
 
+## What kind of food is Falafel?
+Falafel is a web development framework that bundles libraries and tools, providing an elegant and satisfying web development experience. We believe that there is no need to feel pain when developing software, whether it's a "warp engine" or a web page.
+Falafel isn't a new independent or "alien" web Framework. It's just a web framework that provides a standard project with MVC concepts, and a collection of facilities for your web Python project.    
+More here: (Falafel)[https://getfalafel.github.io/docs/en/welcome-to-falafel/about-the-falafel/]
+
 ## About Fava CLI
 
 Fava is the command-line interface (CLI) for Falafel, amd the CLI provides a number of helpful commands that can assist you while you build your application.  
 Fava is a standalone Python package, but it is designed as a main dependency of Falafel. 
 Its functionality depends on the Falafel base project and it isn't recommended to run just Fava without Falafel files.  
+
+Fava, our CLI provides tools to facilitate your application development. With Fava you can interact with your favorite database engine, generating migrations, models, and seeds. It is also possible to create routes, controllers and other functionality.    
+
+Fava is a good friend! :)     
 
 To view a list of all available Fava commands, you may use the list command:
 
