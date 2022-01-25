@@ -58,6 +58,7 @@ def parse_command_line(args):
 
     description = "Use -h to list all commands."
     parser = argparse.ArgumentParser(description=description)
+    parser.add_argument('-v', '--version', action='version', version='0.2.2')
     parser.add_argument('-s', '--server', nargs='?', type=str, help='Run application in development', const='5000')
     parser.add_argument('-mkmigration', '--make_migration', nargs='?', type=str, help='Create a new migration file')
     parser.add_argument('-mkseeder', '--make_seeder', nargs='?', type=str, help='Create a new seeder class')

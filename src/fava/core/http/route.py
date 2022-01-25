@@ -76,12 +76,16 @@ def update_route_list(route_name):
         app_config_data = toml.load(app_config_file)
         is_new = True
         for extension in app_config_data.get('default').get('EXTENSIONS'):
-            print(extension)
+            if extension == "app.http.routes." + route_name + "_routes:init_app":
+                is_new = False
+                break
 
         if is_new:
             app_config_data.get('default').get('EXTENSIONS').append(
                 'app.http.routes.' + route_name + '_routes:init_app')
-            toml.dump(app_config_data, app_config_file)
+            with open(app_config_file, 'w') as file:
+                toml.dump(app_config_data, file)
+                file.close()
 
     except BaseException as err:
         print("An error occurring!")

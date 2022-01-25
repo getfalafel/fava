@@ -9,30 +9,30 @@ Prepare
 controllers_dir = variables.get_app_dir() + "/" + variables.get("CONTROLLERS_DIR")
 
 
-def create_new_controller(name):
+def create_new_controller(controller_name):
     """
     Create new controller file
     :param name:
     :return:
     """
 
-    name = name.lower()
-    if path.exists(controllers_dir + "/" + name.lower() + "_controller.py"):
+    name = controller_name.lower()
+    if path.exists(controllers_dir + "/" + name + "_controller.py"):
         print("#######")
         print("Error!")
-        print("The " + controllers_dir + "/" + name.lower() + "_controller.py exists!")
+        print("The " + controllers_dir + "/" + name + "_controller.py exists!")
         print("#######")
 
     else:
-        with open(controllers_dir + "/" + name.lower() + "_controller.py", "w") as controller:
+        with open(controllers_dir + "/" + name + "_controller.py", "w") as controller:
             content = dedent("""\
                 from flask import jsonify
                 
                 
-                def get():
+                def index():
                     return jsonify(
                         {
-                            "message": "Hello, """ + name.lower() + """ controller "
+                            "message": "Hello, """ + name + """ controller "
                         }
                     )
                 """)
@@ -42,7 +42,7 @@ def create_new_controller(name):
             controller.write(formatted)
 
             print("#######")
-            print("Controller " + controllers_dir + "/" + name.lower() + "_controller.py created!")
+            print("Controller " + controllers_dir + "/" + name + "_controller.py created!")
             print("#######")
 
 
